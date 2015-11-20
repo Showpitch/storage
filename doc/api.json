@@ -1,6 +1,6 @@
 {
   "id": 2,
-  "name": "\"aurelia-post-box\"",
+  "name": "\"aurelia-storage\"",
   "kind": 2,
   "kindString": "Module",
   "flags": {},
@@ -36,7 +36,7 @@
                 "type": "reference",
                 "name": "Storage",
                 "id": 3,
-                "moduleName": "\"aurelia-post-box\""
+                "moduleName": "\"aurelia-storage\""
               }
             }
           ]

@@ -1,4 +1,4 @@
-declare module 'aurelia-post-box' {
+declare module 'aurelia-storage' {
   
   /**
    * Created by ericjohnson on 10/6/15.
