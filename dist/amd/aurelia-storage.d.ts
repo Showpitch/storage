@@ -9,5 +9,6 @@ declare module 'aurelia-storage' {
     saveTopic(topic: any, value: any, isLocal?: any): any;
     retrieveTopic(topic: any): any;
     deleteTopic(topic: any): any;
+    isJsonString(str: any): any;
   }
 }

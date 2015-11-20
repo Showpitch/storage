@@ -99,6 +99,41 @@
           ]
         },
         {
+          "id": 19,
+          "name": "isJsonString",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 20,
+              "name": "isJsonString",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "parameters": [
+                {
+                  "id": 21,
+                  "name": "str",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "any"
+              }
+            }
+          ]
+        },
+        {
           "id": 13,
           "name": "retrieveTopic",
           "kind": 2048,
@@ -207,6 +242,7 @@
           "children": [
             16,
             6,
+            19,
             13,
             8
           ]

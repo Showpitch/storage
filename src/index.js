@@ -22,7 +22,7 @@ export class Storage {
 
     saveTopic(topic, value, isLocal = false) {
 
-        if(topic === undefined || value === undefined){
+        if (topic === undefined || value === undefined) {
             return
         }
 
@@ -41,9 +41,10 @@ export class Storage {
 
     retrieveTopic(topic) {
         if (this.persistedTopics[topic]) {
-            return JSON.parse(this.storage.getItem(topic));
+            return this.isJsonString(this.storage.getItem(topic)) ? JSON.parse(this.storage.getItem(topic)) : this.storage.getItem(topic);
         } else {
-            return JSON.parse(this.session.getItem(topic));
+            return this.isJsonString(this.session.getItem(topic)) ? JSON.parse(this.session.getItem(topic)) : this.session.getItem(topic);
+
         }
     }
 
@@ -54,5 +55,14 @@ export class Storage {
         } else {
             this.session.removeItem(topic);
         }
+    }
+
+    isJsonString(str) {
+        try {
+            JSON.parse(str);
+        } catch (e) {
+            return false;
+        }
+        return true;
     }
 }

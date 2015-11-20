@@ -48,9 +48,9 @@ System.register([], function (_export) {
 
                 Storage.prototype.retrieveTopic = function retrieveTopic(topic) {
                     if (this.persistedTopics[topic]) {
-                        return JSON.parse(this.storage.getItem(topic));
+                        return this.isJsonString(this.storage.getItem(topic)) ? JSON.parse(this.storage.getItem(topic)) : this.storage.getItem(topic);
                     } else {
-                        return JSON.parse(this.session.getItem(topic));
+                        return this.isJsonString(this.session.getItem(topic)) ? JSON.parse(this.session.getItem(topic)) : this.session.getItem(topic);
                     }
                 };
 
@@ -61,6 +61,15 @@ System.register([], function (_export) {
                     } else {
                         this.session.removeItem(topic);
                     }
+                };
+
+                Storage.prototype.isJsonString = function isJsonString(str) {
+                    try {
+                        JSON.parse(str);
+                    } catch (e) {
+                        return false;
+                    }
+                    return true;
                 };
 
                 return Storage;
