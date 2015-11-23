@@ -13,9 +13,6 @@
       "flags": {
         "isExported": true
       },
-      "comment": {
-        "shortText": "Created by ericjohnson on 10/6/15."
-      },
       "children": [
         {
           "id": 4,
@@ -42,7 +39,7 @@
           ]
         },
         {
-          "id": 16,
+          "id": 28,
           "name": "deleteTopic",
           "kind": 2048,
           "kindString": "Method",
@@ -51,14 +48,14 @@
           },
           "signatures": [
             {
-              "id": 17,
+              "id": 29,
               "name": "deleteTopic",
               "kind": 4096,
               "kindString": "Call signature",
               "flags": {},
               "parameters": [
                 {
-                  "id": 18,
+                  "id": 30,
                   "name": "topic",
                   "kind": 32768,
                   "kindString": "Parameter",
@@ -77,29 +74,7 @@
           ]
         },
         {
-          "id": 6,
-          "name": "getPersistedTopics",
-          "kind": 2048,
-          "kindString": "Method",
-          "flags": {
-            "isExported": true
-          },
-          "signatures": [
-            {
-              "id": 7,
-              "name": "getPersistedTopics",
-              "kind": 4096,
-              "kindString": "Call signature",
-              "flags": {},
-              "type": {
-                "type": "instrinct",
-                "name": "any"
-              }
-            }
-          ]
-        },
-        {
-          "id": 19,
+          "id": 31,
           "name": "isJsonString",
           "kind": 2048,
           "kindString": "Method",
@@ -108,14 +83,14 @@
           },
           "signatures": [
             {
-              "id": 20,
+              "id": 32,
               "name": "isJsonString",
               "kind": 4096,
               "kindString": "Call signature",
               "flags": {},
               "parameters": [
                 {
-                  "id": 21,
+                  "id": 33,
                   "name": "str",
                   "kind": 32768,
                   "kindString": "Parameter",
@@ -134,7 +109,99 @@
           ]
         },
         {
-          "id": 13,
+          "id": 6,
+          "name": "loadIndex",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 7,
+              "name": "loadIndex",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "type": {
+                "type": "instrinct",
+                "name": "any"
+              }
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "name": "remove",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 18,
+              "name": "remove",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "parameters": [
+                {
+                  "id": 19,
+                  "name": "key",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "any"
+              }
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "retrieve",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 15,
+              "name": "retrieve",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "parameters": [
+                {
+                  "id": 16,
+                  "name": "key",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "any"
+              }
+            }
+          ]
+        },
+        {
+          "id": 25,
           "name": "retrieveTopic",
           "kind": 2048,
           "kindString": "Method",
@@ -143,14 +210,14 @@
           },
           "signatures": [
             {
-              "id": 14,
+              "id": 26,
               "name": "retrieveTopic",
               "kind": 4096,
               "kindString": "Call signature",
               "flags": {},
               "parameters": [
                 {
-                  "id": 15,
+                  "id": 27,
                   "name": "topic",
                   "kind": 32768,
                   "kindString": "Parameter",
@@ -169,7 +236,7 @@
           ]
         },
         {
-          "id": 8,
+          "id": 20,
           "name": "saveTopic",
           "kind": 2048,
           "kindString": "Method",
@@ -178,15 +245,74 @@
           },
           "signatures": [
             {
-              "id": 9,
+              "id": 21,
               "name": "saveTopic",
               "kind": 4096,
               "kindString": "Call signature",
               "flags": {},
               "parameters": [
                 {
-                  "id": 10,
+                  "id": 22,
                   "name": "topic",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                },
+                {
+                  "id": 23,
+                  "name": "value",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                },
+                {
+                  "id": 24,
+                  "name": "isLocal",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "any"
+              }
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "name": "store",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 9,
+              "name": "store",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "parameters": [
+                {
+                  "id": 10,
+                  "name": "key",
                   "kind": 32768,
                   "kindString": "Parameter",
                   "flags": {},
@@ -208,7 +334,20 @@
                 },
                 {
                   "id": 12,
-                  "name": "isLocal",
+                  "name": "expiration",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                },
+                {
+                  "id": 13,
+                  "name": "session",
                   "kind": 32768,
                   "kindString": "Parameter",
                   "flags": {
@@ -240,10 +379,13 @@
           "title": "Methods",
           "kind": 2048,
           "children": [
-            16,
+            28,
+            31,
             6,
-            19,
-            13,
+            17,
+            14,
+            25,
+            20,
             8
           ]
         }

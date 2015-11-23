@@ -1,4 +1,4 @@
-System.register([], function (_export) {
+System.register(['moment'], function (_export) {
     'use strict';
 
     var Storage;
@@ -6,25 +6,56 @@ System.register([], function (_export) {
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
     return {
-        setters: [],
+        setters: [function (_moment) {}],
         execute: function () {
             Storage = (function () {
                 function Storage() {
                     _classCallCheck(this, Storage);
 
-                    this.persistedTopics = {};
+                    this.index = {};
                     this.storage = window.localStorage;
                     this.session = window.sessionStorage;
 
-                    this.getPersistedTopics();
+                    this.loadIndex();
                 }
 
-                Storage.prototype.getPersistedTopics = function getPersistedTopics() {
+                Storage.prototype.loadIndex = function loadIndex() {
                     var x = Object.keys(this.storage);
 
                     for (var i = 0; i < x.length; i++) {
-                        this.persistedTopics[x[i]] = true;
+                        this.index[x[i]] = true;
                     }
+                };
+
+                Storage.prototype.store = function store(key, value) {
+                    var expiration = arguments.length <= 2 || arguments[2] === undefined ? 60 * 60 * 24 * 14 : arguments[2];
+                    var session = arguments.length <= 3 || arguments[3] === undefined ? true : arguments[3];
+
+                    var item = JSON.stringify({ stamp: moment().add(expiration, 'seconds'), data: value });
+
+                    if (!session) {
+                        this.index[key] = true;
+                        this.storage.setItem(key, item);
+                    } else {
+                        this.session.setItem(key, item);
+                    }
+                };
+
+                Storage.prototype.retrieve = function retrieve(key) {
+                    var returnItem = JSON.parse(this[this.index[key] ? 'storage' : 'session'].getItem(key));
+
+                    if (returnItem && moment() <= moment(returnItem.stamp)) {
+                        return returnItem.data;
+                    }
+
+                    this.remove(key);
+
+                    return null;
+                };
+
+                Storage.prototype.remove = function remove(key) {
+                    this[this.index[key] ? 'storage' : 'session'].removeItem(key);
+                    delete this.index[key];
                 };
 
                 Storage.prototype.saveTopic = function saveTopic(topic, value) {
@@ -39,7 +70,7 @@ System.register([], function (_export) {
                     }
 
                     if (isLocal) {
-                        this.persistedTopics[topic] = true;
+                        this.index[topic] = true;
                         this.storage.setItem(topic, value);
                     } else {
                         this.session.setItem(topic, value);
@@ -47,7 +78,7 @@ System.register([], function (_export) {
                 };
 
                 Storage.prototype.retrieveTopic = function retrieveTopic(topic) {
-                    if (this.persistedTopics[topic]) {
+                    if (this.index[topic]) {
                         return this.isJsonString(this.storage.getItem(topic)) ? JSON.parse(this.storage.getItem(topic)) : this.storage.getItem(topic);
                     } else {
                         return this.isJsonString(this.session.getItem(topic)) ? JSON.parse(this.session.getItem(topic)) : this.session.getItem(topic);
@@ -55,8 +86,8 @@ System.register([], function (_export) {
                 };
 
                 Storage.prototype.deleteTopic = function deleteTopic(topic) {
-                    if (this.persistedTopics[topic]) {
-                        delete this.persistedTopics[topic];
+                    if (this.index[topic]) {
+                        delete this.index[topic];
                         this.storage.removeItem(topic);
                     } else {
                         this.session.removeItem(topic);
