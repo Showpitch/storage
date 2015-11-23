@@ -2,7 +2,7 @@
  * Created by ericjohnson on 10/6/15.
  */
 
-import 'moment';
+import moment from 'moment';
 
 export class Storage {
     constructor() {

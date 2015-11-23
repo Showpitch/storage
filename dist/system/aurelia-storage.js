@@ -1,12 +1,14 @@
 System.register(['moment'], function (_export) {
     'use strict';
 
-    var Storage;
+    var moment, Storage;
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
     return {
-        setters: [function (_moment) {}],
+        setters: [function (_moment) {
+            moment = _moment['default'];
+        }],
         execute: function () {
             Storage = (function () {
                 function Storage() {

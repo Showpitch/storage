@@ -3,7 +3,11 @@ define(['exports', 'moment'], function (exports, _moment) {
 
     exports.__esModule = true;
 
+    function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    var _moment2 = _interopRequireDefault(_moment);
 
     var Storage = (function () {
         function Storage() {
@@ -28,7 +32,7 @@ define(['exports', 'moment'], function (exports, _moment) {
             var expiration = arguments.length <= 2 || arguments[2] === undefined ? 60 * 60 * 24 * 14 : arguments[2];
             var session = arguments.length <= 3 || arguments[3] === undefined ? true : arguments[3];
 
-            var item = JSON.stringify({ stamp: moment().add(expiration, 'seconds'), data: value });
+            var item = JSON.stringify({ stamp: _moment2['default']().add(expiration, 'seconds'), data: value });
 
             if (!session) {
                 this.index[key] = true;
@@ -41,7 +45,7 @@ define(['exports', 'moment'], function (exports, _moment) {
         Storage.prototype.retrieve = function retrieve(key) {
             var returnItem = JSON.parse(this[this.index[key] ? 'storage' : 'session'].getItem(key));
 
-            if (returnItem && moment() <= moment(returnItem.stamp)) {
+            if (returnItem && _moment2['default']() <= _moment2['default'](returnItem.stamp)) {
                 return returnItem.data;
             }
 
