@@ -1,6 +1,6 @@
 {
   "name": "storage",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A storage manager for aurelia",
   "keywords": [
     "aurelia",
@@ -12,14 +12,14 @@
   },
   "license": "MIT",
   "author": "Eric Johnson <ericj@singledigit.net> (https://github.com/digitzfone)",
-  "main": "dist/commonjs/aurelia-storage.js",
+  "main": "dist/commonjs/storage.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Showpitch/storage"
   },
   "jspmNodeConversion": false,
   "jspm": {
-    "main": "aurelia-storage",
+    "main": "storage",
     "format": "amd",
     "directories": {
       "lib": "dist/amd"
