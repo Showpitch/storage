@@ -1,21 +1,21 @@
 {
   "name": "aurelia-storage",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A storage manager for aurelia",
   "keywords": [
     "aurelia",
     "storage"
   ],
-  "homepage": "https://github.com/digitzfone/aurelia-storage",
+  "homepage": "https://github.com/Showpitch/storage",
   "bugs": {
-    "url": "https://github.com/digitzfone/aurelia-storage/issues"
+    "url": "https://github.com/Showpitch/storage/issues"
   },
   "license": "MIT",
   "author": "Eric Johnson <ericj@singledigit.net> (https://github.com/digitzfone)",
   "main": "dist/commonjs/aurelia-storage.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/digitzfone/aurelia-storage"
+    "url": "https://github.com/Showpitch/storage"
   },
   "jspmNodeConversion": false,
   "jspm": {
