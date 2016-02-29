@@ -53,43 +53,6 @@ export class Storage {
         delete this.index[key];
     }
 
-    saveTopic(topic, value, isLocal = false) {
-
-        if (topic === undefined || value === undefined) {
-            return
-        }
-
-        // convert to JSON if needed
-        if (typeof(value) == 'object') {
-            value = JSON.stringify(value);
-        }
-
-        if (isLocal) {
-            this.index[topic] = true;
-            this.storage.setItem(topic, value);
-        } else {
-            this.session.setItem(topic, value);
-        }
-    }
-
-    retrieveTopic(topic) {
-        if (this.index[topic]) {
-            return this.isJsonString(this.storage.getItem(topic)) ? JSON.parse(this.storage.getItem(topic)) : this.storage.getItem(topic);
-        } else {
-            return this.isJsonString(this.session.getItem(topic)) ? JSON.parse(this.session.getItem(topic)) : this.session.getItem(topic);
-
-        }
-    }
-
-    deleteTopic(topic) {
-        if (this.index[topic]) {
-            delete this.index[topic];
-            this.storage.removeItem(topic);
-        } else {
-            this.session.removeItem(topic);
-        }
-    }
-
     isJsonString(str) {
         try {
             JSON.parse(str);

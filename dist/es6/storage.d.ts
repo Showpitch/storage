@@ -10,9 +10,6 @@ declare module 'storage' {
     store(key: any, value: any, expiration?: any, session?: any): any;
     retrieve(key: any): any;
     remove(key: any): any;
-    saveTopic(topic: any, value: any, isLocal?: any): any;
-    retrieveTopic(topic: any): any;
-    deleteTopic(topic: any): any;
     isJsonString(str: any): any;
   }
 }

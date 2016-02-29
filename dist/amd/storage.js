@@ -59,42 +59,6 @@ define(['exports', 'moment'], function (exports, _moment) {
             delete this.index[key];
         };
 
-        Storage.prototype.saveTopic = function saveTopic(topic, value) {
-            var isLocal = arguments.length <= 2 || arguments[2] === undefined ? false : arguments[2];
-
-            if (topic === undefined || value === undefined) {
-                return;
-            }
-
-            if (typeof value == 'object') {
-                value = JSON.stringify(value);
-            }
-
-            if (isLocal) {
-                this.index[topic] = true;
-                this.storage.setItem(topic, value);
-            } else {
-                this.session.setItem(topic, value);
-            }
-        };
-
-        Storage.prototype.retrieveTopic = function retrieveTopic(topic) {
-            if (this.index[topic]) {
-                return this.isJsonString(this.storage.getItem(topic)) ? JSON.parse(this.storage.getItem(topic)) : this.storage.getItem(topic);
-            } else {
-                return this.isJsonString(this.session.getItem(topic)) ? JSON.parse(this.session.getItem(topic)) : this.session.getItem(topic);
-            }
-        };
-
-        Storage.prototype.deleteTopic = function deleteTopic(topic) {
-            if (this.index[topic]) {
-                delete this.index[topic];
-                this.storage.removeItem(topic);
-            } else {
-                this.session.removeItem(topic);
-            }
-        };
-
         Storage.prototype.isJsonString = function isJsonString(str) {
             try {
                 JSON.parse(str);
