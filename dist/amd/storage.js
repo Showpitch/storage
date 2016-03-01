@@ -29,16 +29,15 @@ define(['exports', 'moment'], function (exports, _moment) {
         };
 
         Storage.prototype.store = function store(key, value) {
-            var expiration = arguments.length <= 2 || arguments[2] === undefined ? 60 * 60 * 24 * 14 : arguments[2];
-            var session = arguments.length <= 3 || arguments[3] === undefined ? true : arguments[3];
+            var session = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
+            var expiration = arguments.length <= 3 || arguments[3] === undefined ? 60 * 60 * 24 * 14 : arguments[3];
 
             var item = JSON.stringify({ stamp: _moment2['default']().add(expiration, 'seconds'), data: value });
-
-            if (!session) {
+            if (session) {
+                this.session.setItem(key, item);
+            } else {
                 this.index[key] = true;
                 this.storage.setItem(key, item);
-            } else {
-                this.session.setItem(key, item);
             }
         };
 

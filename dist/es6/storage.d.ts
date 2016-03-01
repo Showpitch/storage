@@ -7,7 +7,7 @@ declare module 'storage' {
   export class Storage {
     constructor();
     loadIndex(): any;
-    store(key: any, value: any, expiration?: any, session?: any): any;
+    store(key: any, value: any, session?: any, expiration?: any): any;
     retrieve(key: any): any;
     remove(key: any): any;
     isJsonString(str: any): any;

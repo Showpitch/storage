@@ -22,16 +22,14 @@ export class Storage {
         }
     }
 
-    store(key, value, expiration = (60*60*24*14), session = true) { // expiration default is 14 days multiplied by seconds
+    store(key, value, session = true, expiration = (60*60*24*14)) { // expiration default is 14 days multiplied by seconds
         let item = JSON.stringify({stamp: moment().add(expiration, 'seconds'), data: value});
-
-        if(!session){
-            this.index[key] = true;
-            this.storage.setItem(key, item);
-        }
-        else{
-            this.session.setItem(key, item);
-        }
+      if (session) {
+          this.session.setItem(key, item);
+      } else {
+          this.index[key] = true;
+          this.storage.setItem(key, item);
+      }
     }
 
     retrieve(key){
