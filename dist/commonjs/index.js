@@ -1,16 +1,19 @@
 'use strict';
 
-exports.__esModule = true;
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Storage = undefined;
 
 var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
 
-var Storage = (function () {
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Storage = exports.Storage = function () {
     function Storage() {
         _classCallCheck(this, Storage);
 
@@ -33,7 +36,7 @@ var Storage = (function () {
         var session = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
         var expiration = arguments.length <= 3 || arguments[3] === undefined ? 60 * 60 * 24 * 14 : arguments[3];
 
-        var item = JSON.stringify({ stamp: _moment2['default']().add(expiration, 'seconds'), data: value });
+        var item = JSON.stringify({ stamp: (0, _moment2.default)().add(expiration, 'seconds'), data: value });
         if (session) {
             this.session.setItem(key, item);
         } else {
@@ -45,7 +48,7 @@ var Storage = (function () {
     Storage.prototype.retrieve = function retrieve(key) {
         var returnItem = JSON.parse(this[this.index[key] ? 'storage' : 'session'].getItem(key));
 
-        if (returnItem && _moment2['default']() <= _moment2['default'](returnItem.stamp)) {
+        if (returnItem && (0, _moment2.default)() <= (0, _moment2.default)(returnItem.stamp)) {
             return returnItem.data;
         }
 
@@ -69,6 +72,4 @@ var Storage = (function () {
     };
 
     return Storage;
-})();
-
-exports.Storage = Storage;
+}();
