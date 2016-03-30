@@ -14,7 +14,6 @@ System.config({
   },
 
   map: {
-    "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0-beta.1",
     "aurelia-polyfills": "npm:aurelia-polyfills@1.0.0-beta.1.1.1",
     "babel": "npm:babel-core@5.8.35",
     "babel-runtime": "npm:babel-runtime@5.8.35",
@@ -34,9 +33,6 @@ System.config({
     },
     "npm:assert@1.3.0": {
       "util": "npm:util@0.10.3"
-    },
-    "npm:aurelia-event-aggregator@1.0.0-beta.1": {
-      "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.1"
     },
     "npm:aurelia-polyfills@1.0.0-beta.1.1.1": {
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.0"
