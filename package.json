@@ -1,6 +1,6 @@
 {
   "name": "storage",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "A storage manager for aurelia",
   "keywords": [
     "aurelia",
@@ -57,20 +57,20 @@
     "moment": "^2.12.0"
   },
   "jspm": {
-    "registry": "npm",
+    "registry": "github",
     "main": "index",
     "format": "amd",
     "directories": {
       "dist": "dist/amd"
     },
     "dependencies": {
-      "moment": "^2.12.0"
+      "moment": "npm:moment@^2.12.0"
     },
     "devDependencies": {
-      "aurelia-polyfills": "^1.0.0-beta.1.1.0",
-      "babel": "babel-core@^5.8.24",
-      "babel-runtime": "^5.8.24",
-      "core-js": "^1.1.4"
+      "aurelia-polyfills": "npm:aurelia-polyfills@^1.0.0-beta.1.1.1",
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
     }
   }
 }
