@@ -1,6 +1,6 @@
 {
   "name": "storage",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "A storage manager for aurelia",
   "keywords": [
     "aurelia",
